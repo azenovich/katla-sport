@@ -1,0 +1,21 @@
+@import './app.vars.scss';
+
+.logo {
+    &--first--letter {
+        color: $color-yellow; 
+        font-weight: bold; 
+        font-family: $ff-main; 
+        margin-right: 0.1em; 
+        border: $color-yellow solid 1px; 
+        padding: 6px;
+    }
+
+    &--name {
+        margin-left: 5px;
+    }
+}
+
+#app--navbar {
+    margin-left: 100px; 
+    margin-bottom: 2px;
+}

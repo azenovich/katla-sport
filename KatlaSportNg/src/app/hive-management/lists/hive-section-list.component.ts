@@ -6,7 +6,7 @@ import { HiveService } from '../services/hive.service';
 @Component({
   selector: 'app-hive-section-list',
   templateUrl: './hive-section-list.component.html',
-  styleUrls: ['./hive-section-list.component.css']
+  styleUrls: ['./hive-section-list.component.scss']
 })
 export class HiveSectionListComponent implements OnInit {
 

@@ -5,7 +5,7 @@ import { HiveService } from '../services/hive.service';
 @Component({
   selector: 'app-hive-list',
   templateUrl: './hive-list.component.html',
-  styleUrls: ['./hive-list.component.css']
+  styleUrls: ['./hive-list.component.scss']
 })
 export class HiveListComponent implements OnInit {
 
