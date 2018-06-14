@@ -1,3 +1,4 @@
+import { Hive } from './../models/hive';
 import { Component, OnInit } from '@angular/core';
 import { HiveListItem } from '../models/hive-list-item';
 import { HiveService } from '../services/hive.service';
@@ -22,10 +23,20 @@ export class HiveListComponent implements OnInit {
   }
 
   onDelete(hiveId: number) {
-    var hive = this.hives.find(h => h.id == hiveId);
-    this.hiveService.setHiveStatus(hiveId, true).subscribe(c => hive.isDeleted = true);
+    var hive = this.findById(hiveId);
+    this.setStatus(hive, true);
   }
 
   onRestore(hiveId: number) {
+    var hive = this.findById(hiveId);
+    this.setStatus(hive, false);
+  }
+
+  private findById(hiveId: number): HiveListItem {
+    return this.hives.find(h => h.id == hiveId);
+  }
+
+  private setStatus(hive: HiveListItem, deletedStatus: boolean) {
+    this.hiveService.setHiveStatus(hive.id, deletedStatus).subscribe(c => hive.isDeleted = deletedStatus);
   }
 }
