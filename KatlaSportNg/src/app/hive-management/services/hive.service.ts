@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Hive } from '../models/hive';
 import { HiveListItem } from '../models/hive-list-item';
 import { HiveSectionListItem } from '../models/hive-section-list-item';
+import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 
 @Injectable({
   providedIn: 'root'
@@ -27,15 +28,15 @@ export class HiveService {
   }
 
   addHive(hive: Hive): Observable<Hive> {
-    return null;
+    return this.http.post<Hive>(`${this.url}`, hive);
   }
 
   updateHive(hive: Hive): Observable<Object> {
-    return null;
+    return this.http.put<Object>(`${this.url}${hive.id}`, hive);
   }
 
   deleteHive(hiveId: number): Observable<Object> {
-    return null;
+    return this.http.delete<Object>(`${this.url}${hiveId}`);
   }
 
   setHiveStatus(hiveId: number, deletedStatus: boolean): Observable<Object> {
