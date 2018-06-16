@@ -19,6 +19,10 @@ namespace KatlaSport.WebApi.CustomFilters
             {
                 context.Response = new HttpResponseMessage(HttpStatusCode.Conflict);
             }
+            else if (context.Exception is RequestedResourceBadRequestException)
+            {
+                context.Response = new HttpResponseMessage(HttpStatusCode.BadRequest);
+            }
             else if (context.Exception is Exception)
             {
                 context.Response = new HttpResponseMessage(HttpStatusCode.InternalServerError);
